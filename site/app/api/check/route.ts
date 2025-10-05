@@ -2,12 +2,30 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const { code, baseline } = await request.json()
+    // Add CORS headers
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+
+    let body
+    try {
+      body = await request.json()
+    } catch (jsonError) {
+      console.error('JSON parsing error:', jsonError)
+      return NextResponse.json(
+        { error: 'Invalid JSON in request body' },
+        { status: 400, headers: corsHeaders }
+      )
+    }
+
+    const { code, baseline } = body
     
     if (!code || !baseline) {
       return NextResponse.json(
         { error: 'Missing code or baseline parameter' },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       )
     }
 
@@ -76,12 +94,34 @@ export async function POST(request: NextRequest) {
       features: allFeatures
     }
 
-    return NextResponse.json(response)
+    return NextResponse.json(response, { headers: corsHeaders })
   } catch (error) {
     console.error('API Error:', error)
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
+    
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+    
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { 
+        error: 'Internal server error',
+        details: process.env.NODE_ENV === 'development' && error instanceof Error ? error.message : undefined
+      },
+      { status: 500, headers: corsHeaders }
     )
   }
+}
+
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  })
 }

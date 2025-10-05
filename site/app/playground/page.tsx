@@ -21,6 +21,7 @@ interface CheckResult {
     feature: string
     required: string | number
   }>
+  error?: string
 }
 
 export default function Playground() {
@@ -65,10 +66,22 @@ const styles = \`
         },
         body: JSON.stringify({ code, baseline }),
       })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
       const data = await response.json()
       setResult(data)
     } catch (error) {
       console.error('Error:', error)
+      setResult({
+        baseline,
+        safe: false,
+        issues: [],
+        features: [],
+        error: 'Failed to analyze code. Please try again.'
+      })
     } finally {
       setLoading(false)
     }
