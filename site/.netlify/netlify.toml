@@ -1,15 +1,7 @@
+functionsDirectory = "C:\\Users\\locha\\OneDrive\\Desktop\\Hackathon\\baseline-check\\site\\netlify\\functions"
+functionsDirectoryOrigin = "default"
 headersOrigin = "inline"
 redirectsOrigin = "inline"
-
-[functions]
-
-[functions."*"]
-
-[[plugins]]
-origin = "config"
-package = "@netlify/plugin-nextjs"
-
-[plugins.inputs]
 
 [build]
 publish = "C:\\Users\\locha\\OneDrive\\Desktop\\Hackathon\\baseline-check\\site\\.next"
@@ -17,6 +9,7 @@ publishOrigin = "config"
 commandOrigin = "config"
 base = "C:\\Users\\locha\\OneDrive\\Desktop\\Hackathon\\baseline-check\\site"
 command = "npm run build"
+functions = "C:\\Users\\locha\\OneDrive\\Desktop\\Hackathon\\baseline-check\\site\\netlify\\functions"
 
 [build.environment]
 
@@ -31,6 +24,16 @@ command = "npm run build"
 [build.processing.js]
 
 [build.services]
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "config"
+package = "@netlify/plugin-nextjs"
+
+[plugins.inputs]
 
 [[headers]]
 for = "/_next/static/*"
