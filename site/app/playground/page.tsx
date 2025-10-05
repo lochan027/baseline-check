@@ -75,9 +75,7 @@ const styles = \`
   }
 
   return (
-    <div className="min-h-screen relative">
-      <GradientBackground />
-      
+    <GradientBackground>
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,7 +161,7 @@ const styles = \`
                   </label>
                   <Textarea
                     value={code}
-                    onChange={(e) => setCode(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCode(e.target.value)}
                     rows={18}
                     className="font-mono text-sm resize-none"
                     placeholder="Paste your JavaScript, CSS, or HTML code here..."
@@ -318,6 +316,6 @@ const styles = \`
           </FadeIn>
         </div>
       </div>
-    </div>
+    </GradientBackground>
   )
 }
