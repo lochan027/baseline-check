@@ -1,6 +1,6 @@
 {
   "name": "baseline-check-cli-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to prevent deployment of unsafe modern web features based on Baseline year standards",
   "main": "bin/index.js",
   "bin": {
