@@ -32,10 +32,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hackathon-team/baseline-check.git"
+    "url": "https://github.com/lochan027/baseline-check.git"
   },
   "bugs": {
-    "url": "https://github.com/hackathon-team/baseline-check/issues"
+    "url": "https://github.com/lochan027/baseline-check/issues"
   },
   "homepage": "https://baseline-check.netlify.app",
   "engines": {
