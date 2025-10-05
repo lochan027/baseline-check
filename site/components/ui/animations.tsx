@@ -63,3 +63,28 @@ export const SlideIn = ({ children, direction = "up", delay = 0, duration = 0.6,
     </motion.div>
   )
 }
+
+export const Stagger = ({ children, staggerDelay = 0.1, ...props }: {
+  children: React.ReactNode
+  staggerDelay?: number
+  [key: string]: any
+}) => {
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: staggerDelay
+          }
+        }
+      }}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  )
+}
