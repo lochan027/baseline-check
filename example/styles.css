@@ -1,0 +1,38 @@
+/* Example CSS with modern features */
+
+.container {
+  /* CSS Grid - Baseline 2020 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+  /* CSS Nesting - Baseline 2024 (UNSAFE for 2023) */
+  .nested-element {
+    color: blue;
+    
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+/* CSS :has() selector - Baseline 2024 (UNSAFE for 2023) */
+.parent:has(.child) {
+  background: yellow;
+}
+
+/* Container queries - Baseline 2024 (UNSAFE for 2023) */
+@container (min-width: 400px) {
+  .card {
+    display: flex;
+  }
+}
+
+/* CSS custom properties - Baseline 2016 */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+}
+
+.theme {
+  color: var(--primary-color);
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@baseline-check/shared",
+  "version": "1.0.0",
+  "description": "Shared utilities for baseline-check CLI and website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "web-features": "^2.0.0",
+    "@babel/parser": "^7.24.0",
+    "@babel/traverse": "^7.24.0",
+    "postcss": "^8.4.0",
+    "htmlparser2": "^9.0.0"
+  }
+}

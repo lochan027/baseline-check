@@ -1,0 +1,53 @@
+{
+  "name": "baseline-check-cli-tool",
+  "version": "1.0.0",
+  "description": "CLI tool to prevent deployment of unsafe modern web features based on Baseline year standards",
+  "main": "bin/index.js",
+  "bin": {
+    "baseline-check": "./bin/index.js",
+    "baseline-setup": "./bin/setup.js"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js",
+    "build": "echo 'CLI build complete'",
+    "test": "echo \"No tests yet\"",
+    "prepublishOnly": "echo 'Ready to publish'"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "baseline.config.json"
+  ],
+  "keywords": [
+    "baseline",
+    "web-standards",
+    "browser-compatibility",
+    "cli",
+    "javascript",
+    "css",
+    "html",
+    "ci-cd"
+  ],
+  "author": "Hackathon Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hackathon-team/baseline-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hackathon-team/baseline-check/issues"
+  },
+  "homepage": "https://baseline-check.netlify.app",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "web-features": "^2.0.0",
+    "@babel/parser": "^7.24.0",
+    "@babel/traverse": "^7.24.0",
+    "postcss": "^8.4.0",
+    "htmlparser2": "^9.0.0",
+    "chalk": "^4.1.2",
+    "globby": "^11.1.0"
+  }
+}

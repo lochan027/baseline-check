@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern HTML Example</title>
+</head>
+<body>
+  <!-- Dialog element - Baseline 2022 -->
+  <dialog id="my-dialog">
+    <p>This is a dialog!</p>
+    <button onclick="this.parentElement.close()">Close</button>
+  </dialog>
+
+  <!-- Details element - Baseline 2020 -->
+  <details>
+    <summary>Click to expand</summary>
+    <p>This content is hidden by default.</p>
+  </details>
+
+  <!-- Picture element - Baseline 2015 -->
+  <picture>
+    <source srcset="image-large.jpg" media="(min-width: 800px)">
+    <source srcset="image-medium.jpg" media="(min-width: 400px)">
+    <img src="image-small.jpg" alt="Responsive image">
+  </picture>
+
+  <!-- Web Components (custom elements) - Varies by feature -->
+  <my-custom-element>
+    <p>Custom element content</p>
+  </my-custom-element>
+
+  <script>
+    // Show dialog
+    document.querySelector('button').addEventListener('click', () => {
+      document.getElementById('my-dialog').showModal();
+    });
+  </script>
+</body>
+</html>

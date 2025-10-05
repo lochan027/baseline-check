@@ -1,0 +1,18 @@
+{
+  "name": "baseline-check-monorepo",
+  "private": true,
+  "scripts": {
+    "install:all": "cd cli && npm install && cd ../site && npm install && cd ../shared && npm install",
+    "setup": "npm run install:all",
+    "build:cli": "cd cli && npm run build",
+    "build:site": "cd site && npm run build",
+    "dev:site": "cd site && npm run dev",
+    "start:cli": "cd cli && npm start",
+    "demo": "node demo.js",
+    "publish:cli": "cd cli && npm publish",
+    "pack:cli": "cd cli && npm pack"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
