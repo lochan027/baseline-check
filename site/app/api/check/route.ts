@@ -1,28 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
-  try {
-    // Add CORS headers
-    const corsHeaders = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    }
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  }
 
-    let body
-    try {
-      body = await request.json()
-    } catch (jsonError) {
-      console.error('JSON parsing error:', jsonError)
-      return NextResponse.json(
-        { error: 'Invalid JSON in request body' },
-        { status: 400, headers: corsHeaders }
-      )
-    }
+  try {
+    console.log('API called')
+    
+    const body = await request.json()
+    console.log('Request body:', body)
 
     const { code, baseline } = body
     
     if (!code || !baseline) {
+      console.log('Missing parameters:', { code: !!code, baseline: !!baseline })
       return NextResponse.json(
         { error: 'Missing code or baseline parameter' },
         { status: 400, headers: corsHeaders }
