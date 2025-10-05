@@ -59,7 +59,7 @@ const styles = \`
   const handleCheck = async () => {
     setLoading(true)
     try {
-      const response = await fetch('/api/check', {
+      const response = await fetch('/.netlify/functions/check', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
