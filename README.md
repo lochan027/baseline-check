@@ -92,7 +92,7 @@ baseline-check --baseline 2022
 
 - 🌐 **Website**: [https://baseline-check.netlify.app](https://baseline-check.netlify.app)
 - 🎮 **Playground**: [https://baseline-check.netlify.app/playground](https://baseline-check.netlify.app/playground)
-- 📦 **npm Package**: [https://www.npmjs.com/package/baseline-check](https://www.npmjs.com/package/baseline-check)
+- 📦 **npm Package**: [https://www.npmjs.com/package/baseline-check-cli-tool](https://www.npmjs.com/package/baseline-check-cli-tool)
 - 🚀 **Deployment Guide**: [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## 📄 License
